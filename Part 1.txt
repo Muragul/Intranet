@@ -76,3 +76,8 @@ Students
 Transcript
 News
 Files
+
+Use Case Questions
+1. Manager or Department&OR
+2. Change Password OK or connect with everyone
+3. View Transcript/Get Transcript

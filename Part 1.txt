@@ -41,7 +41,7 @@ USERs -> AUTH -> Deserialize -> USERs
 	String st_info; - File
 	vector <Course> courses;
 	map <Course, mark> transcript; --
-	registerForCourse(int course_id);
+	registerForCourse(Course course);
 	viewFiles(int course_id);
 	getTeacherInfo(int course_id);
 	viewMarks(int course_id);
@@ -78,6 +78,5 @@ News
 Files
 
 Use Case Questions
-1. Manager or Department&OR
-2. Change Password OK or connect with everyone
-3. View Transcript/Get Transcript
+1.  Department&OR
+2. Change Password connect with everyone

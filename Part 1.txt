@@ -77,6 +77,9 @@ Transcript
 News
 Files
 
-Use Case Questions
-1.  Department&OR
-2. Change Password connect with everyone
+
+1. Admin updateUser();
+2.+ Teacher viewInfo(id/Student);
+3. sendRequest(); type of request teacher/student
+4. Manager addNews/postNews, viewInfo
+5. Grade enum

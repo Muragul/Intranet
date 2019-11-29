@@ -4,7 +4,14 @@ import enums.*;
 import report.*;
 
 public abstract class Manager extends Employee {
-    public void addNews(News news) {
+	public Manager() {super();}
+    public Manager(int userId, String login, String password, String firstName, String lastName, double salary) {
+		super(userId, login, password, firstName, lastName, salary);
+		// TODO Auto-generated constructor stub
+	}
+    
+    //code
+	public void addNews(News news) {
     }
     public void viewInfo(int id) {
     }
@@ -16,5 +23,8 @@ public abstract class Manager extends Employee {
     }
     public void sendOrder(Order order, TechSupport techSupport) {
     }
+    //end
+    
+    
 }
 

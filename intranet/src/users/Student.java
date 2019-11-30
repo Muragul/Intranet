@@ -41,11 +41,13 @@ public class Student extends User {
     public void removeCourse(Course course) {
     	this.registeredCourses.remove(course);
     }
-    public void viewFiles(Course course) {
+    public Vector<CourseFile> viewFiles(Course course) {
+    	return course.getFiles();
     }
-    public void viewTeacher(Course course) {
+    public String viewTeacher(Course course) {
+    	return course.getTeacher().toString();
     }
-    public void rateTeacher(Teacher teacher) {
+    public void rateTeacher(Teacher teacher, double rate) {
     }
     public void viewMark(Course course) {
     }
@@ -53,13 +55,15 @@ public class Student extends User {
     }
     public void viewTranscript() {
     }
-    public void calculateGPA() {
+    public double calculateGPA() {
+    	return getGpa();
     }
     public void calculateGPA(int year, Semester semester) {
     }
     public void sendRequest(Request request) {
     }
-    public void viewCourse(Course course) {
+    public String viewCourse(Course course) {
+    	return course.toString();
     }
     //end
     

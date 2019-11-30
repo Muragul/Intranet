@@ -2,25 +2,38 @@ package users;
 import java.util.Vector;
 
 public class Admin extends User {
-	private Vector<User> users;
+	public static Vector<User> users;
 	public Admin() {super();}
 	public Admin(int userId, String login, String password, String firstName, String lastName, Vector<User> users) {
 		super(userId, login, password, firstName, lastName);
-		this.users = users;
+		Admin.users = users;
 	}
 	
 	//code
-	public void addUser(String type, String firstName, String lastName) {
+	public void addUser(String type, int id, String firstName, String lastName) {
+		User user = UserFactory.getUser(type);
+		user.setFirstName(firstName);
+		user.setLastName(lastName);
+		user.setUserId(id);
+		users.add(user);		
 	}
 	public void removeUser(int userId) {
+		for (User u: users)
+			if (u.getUserId() == userId)
+				users.remove(u);
 	}
 	public void updateUser(int userId) {
 	}
-	public void getUserInfo(int userId) {
+	public String getUserInfo(int userId) {
+		for (User u: users)
+			if (u.getUserId() == userId)
+				return u.toString();
+		return null;
 	}
 	public void seeLogFiles() {
 	}
 	public void showUsers() {
+		this.getUsers();
 	}
 	//end
 	
@@ -28,7 +41,7 @@ public class Admin extends User {
 		return users;
 	}
 	public void setUsers(Vector<User> users) {
-		this.users = users;
+		Admin.users = users;
 	}
 
 	@Override

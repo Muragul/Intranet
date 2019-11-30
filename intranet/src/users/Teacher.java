@@ -13,7 +13,7 @@ public class Teacher extends Employee {
     private double averageRate;
     private Vector<Message> messages;
     private TeacherTitle title;
-    private Vector<Course> courses;
+    public Vector<Course> courses;
     public Teacher() {super();}
 	public Teacher(int userId, String login, String password, String firstName, String lastName, double salary,
 			Gender gender, String email, String universityEmail, String phoneNum, Date birthDate, TeacherTitle title) {
@@ -28,18 +28,25 @@ public class Teacher extends Employee {
 	
 	//code
     public void uploadFile(Course course, CourseFile file) {
+    	Vector <CourseFile> cf = course.getFiles();
+    	cf.add(file);
+    	course.setFiles(cf);
     }
-    public void viewCourse(Course course) {
+    public String viewCourse(Course course) {
+    	return course.toString();
     }
     public void putMark(Course course, Student student, Mark mark) {
     }
-    public void viewStudents(Course course) {
+    public Map<Student, Mark> viewStudents(Course course) {
+    	return course.getMarks();
     }
-    public void viewStudentInfo(Student student) {
+    public String viewStudentInfo(Student student) {
+    	return student.toString();
     }
     public void sendRequest(Request request) {
     }
     public void sendOrder(Order order) {
+    	TechSupport.orders.add(order);
     }
     //end
 

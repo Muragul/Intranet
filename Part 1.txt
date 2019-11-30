@@ -83,3 +83,14 @@ Files
 3. sendRequest(); type of request teacher/student
 4. Manager addNews/postNews, viewInfo
 5. Grade enum
+
+
+Code:
+1. Fix enum fields (get/set/constructor)
+	request
+	change status
+2. IDK
+	globalDate
+	attendance
+	schedule
+3. List of all Courses

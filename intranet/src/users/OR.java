@@ -1,6 +1,5 @@
 package users;
 import java.util.*;
-import enums.*;
 import report.*;
 import course.*;
 
@@ -22,7 +21,7 @@ public class OR extends Manager {
 		return requests;
 	}
 	public void setRequests(Vector<Request> requests) {
-		this.requests = requests;
+		OR.requests = requests;
 	}
 	
 	

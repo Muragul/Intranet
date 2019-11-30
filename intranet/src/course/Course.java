@@ -66,6 +66,7 @@ public class Course {
 	}
 	public void setTeacher(Teacher teacher) {
 		this.teacher = teacher;
+		teacher.courses.add(this);
 	}
 	public Map<Student, Mark> getMarks() {
 		return marks;

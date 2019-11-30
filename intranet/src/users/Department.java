@@ -13,9 +13,17 @@ public class Department extends Manager {
 	}
 	
 	//code
-	public void createCourse(int id, Faculty faculty, int credits, String description, Vector<Integer> formula) {
+	public void createCourse(String id, Faculty faculty, int credits, String description, Vector<Integer> formula) {
+		Course course = new Course();
+		course.setId(id);
+		course.setFaculty(faculty);
+		course.setCredits(credits);
+		course.setDescription(description);
+		course.setFormula(formula);
+		//куда то добавить курс (регистрация или список всех курсов)
 	}
 	public void assignTeacherToCourse(Teacher teacher, Course course) {
+		course.setTeacher(teacher);
 	}
 	//end
 

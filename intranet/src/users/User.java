@@ -6,13 +6,11 @@ public abstract class User {
     private int userId;
     private String login;
     private String password;
-    private static Vector<News> news;
+    public static Vector<News> news;
     private String firstName;
     private String lastName;
     
-    public User() {
-    	
-    }
+    public User() {}
     public User(int userId, String login, String password, String firstName, String lastName) {
 		super();
 		this.userId = userId;
@@ -68,7 +66,7 @@ public abstract class User {
 	}
 	
 	public void setNews(Vector<News> news) {
-		this.news = news;
+		User.news = news;
 	}
 	@Override
 	public int hashCode() {

@@ -2,7 +2,7 @@ package users;
 
 public class UserFactory {
 	
-	public User getUser(String userType) {
+	public static User getUser(String userType) {
 		if (userType==null)return null;
 		if (userType.equalsIgnoreCase("student"))
 			return new Student();

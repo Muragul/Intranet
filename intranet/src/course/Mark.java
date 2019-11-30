@@ -1,6 +1,4 @@
 package course;
-import enums.*;
-import java.util.*;
 
 public class Mark {
 	private double firstAtt;

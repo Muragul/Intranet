@@ -5,12 +5,41 @@ import course.*;
 import report.*;
 
 public class Teacher extends Employee {
+	
+	static class TeacherRate {
+		
+		public double sumRate;
+		public int countRate;
+		
+		{
+			sumRate = 0.0;
+			countRate = 0;
+		}
+		
+		public TeacherRate() {
+			
+		}
+		
+		public void addRate(double rate) {
+			sumRate += rate;
+			countRate++;
+		}
+		
+		public double getAverage() {
+			if (countRate == 0) {
+				return 0;
+			} else {
+				return sumRate / countRate;
+			}
+		}
+	}
+	
     public Gender gender;
     private String email;
     private String universityEmail;
     private String phoneNum;
     private Date birthDate;
-    private double averageRate;
+    private TeacherRate rate;
     private Vector<Message> messages;
     private TeacherTitle title;
     public Vector<Course> courses;
@@ -32,19 +61,25 @@ public class Teacher extends Employee {
     	cf.add(file);
     	course.setFiles(cf);
     }
+    
     public String viewCourse(Course course) {
     	return course.toString();
     }
+    
     public void putMark(Course course, Student student, Mark mark) {
     }
+    
     public Map<Student, Mark> viewStudents(Course course) {
     	return course.getMarks();
     }
+    
     public String viewStudentInfo(Student student) {
     	return student.toString();
     }
+    
     public void sendRequest(Request request) {
     }
+    
     public void sendOrder(Order order) {
     	TechSupport.orders.add(order);
     }
@@ -89,13 +124,13 @@ public class Teacher extends Employee {
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
-
-	public double getAverageRate() {
-		return averageRate;
+	
+	public void setTeacherRate(double rate) {
+		this.rate.addRate(rate);
 	}
 
-	public void setAverageRate(double averageRate) {
-		this.averageRate = averageRate;
+	public double getAverageRate() {
+		return rate.getAverage();
 	}
 
 	public Vector<Message> getMessages() {
@@ -150,7 +185,7 @@ public class Teacher extends Employee {
 	@Override
 	public String toString() {
 		return "Teacher [gender=" + gender + ", email=" + email + ", universityEmail=" + universityEmail + ", phoneNum="
-				+ phoneNum + ", birthDate=" + birthDate + ", averageRate=" + averageRate + ", title=" + title
+				+ phoneNum + ", birthDate=" + birthDate + ", averageRate=" + rate.getAverage() + ", title=" + title
 				+ ", courses=" + courses + ", Salary=" + getSalary() + ", UserId=" + getUserId()
 				+ ", FirstName=" + getFirstName() + ", LastName=" + getLastName() + "]";
 	}

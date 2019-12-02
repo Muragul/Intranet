@@ -1,37 +1,57 @@
 package course;
 
 public class Mark {
+	
 	private double firstAtt;
 	private double secondAtt;
 	private double finalexam;
+	
 	public Mark() {}
+	
 	public Mark(double firstAtt, double secondAtt, double finalexam) {
 		super();
 		this.firstAtt = firstAtt;
 		this.secondAtt = secondAtt;
 		this.finalexam = finalexam;
 	}
-	//code
+	
 	public double getMark() {
-		return this.firstAtt+this.secondAtt+this.finalexam;
+		return this.firstAtt + this.secondAtt + this.finalexam;
 	}
+	
 	public String getGrade() {
+		
 		String grade="";
+		
 		double mark = this.getMark();
-		if (mark>94)grade="A"; else
-		if (mark>89)grade="A-"; else
-		if (mark>84)grade="B+"; else
-		if (mark>79)grade="B"; else
-		if (mark>74)grade="B-"; else
-		if (mark>69)grade="C+"; else
-		if (mark>64)grade="C"; else
-		if (mark>59)grade="C-"; else
-		if (mark>54)grade="D+"; else
-		if (mark>49)grade="D"; else
-		if (mark>24)grade="FX"; else
-		grade="F";
+		if (mark >= 94.5) {
+			grade="A";
+		} else if (mark>=89.5) {
+			grade="A-";
+		} else if (mark>=84.5) {
+			grade="B+"; 
+		} else if (mark>=79.5) {
+			grade="B"; 
+		} else if (mark>=74.5) {
+			grade="B-";
+		} else if (mark>=69.5) {
+			grade="C+";
+		} else if (mark>=64.5) {
+			grade="C"; 
+		} else if (mark>=59.5) {
+			grade="C-"; 
+		} else if (mark>=54.5) {
+			grade="D+"; 
+		} else if (mark>=49.5) {
+			grade="D";
+		} else if (mark>=24.5) {
+			grade="FX"; 
+		} else {
+			grade="F";
+		}
 		return grade;
 	}
+	
 	public double getGPA() {
 		String grade = this.getGrade();
 		double gpa = 0;
@@ -68,7 +88,7 @@ public class Mark {
 	public void setFinalexam(double finalexam) {
 		this.finalexam = finalexam;
 	}
-	@Override
+	
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -81,7 +101,7 @@ public class Mark {
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
 	}
-	@Override
+	
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -98,7 +118,7 @@ public class Mark {
 			return false;
 		return true;
 	}
-	@Override
+	
 	public String toString() {
 		return "Mark [firstAtt=" + firstAtt + ", secondAtt=" + secondAtt + ", finalexam=" + finalexam + "]";
 	}

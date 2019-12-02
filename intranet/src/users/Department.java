@@ -2,6 +2,7 @@ package users;
 import java.util.*;
 import enums.*;
 import course.*;
+import database.Database;
 
 public class Department extends Manager {
 	public Faculty faculty;
@@ -20,8 +21,11 @@ public class Department extends Manager {
 		course.setCredits(credits);
 		course.setDescription(description);
 		course.setFormula(formula);
-		//куда то добавить курс (регистрация или список всех курсов)
+		Vector<Course> temp = Database.getCourses();
+		temp.add(course);
+		Database.setCourses(temp);
 	}
+	
 	public void assignTeacherToCourse(Teacher teacher, Course course) {
 		course.setTeacher(teacher);
 	}

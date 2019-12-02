@@ -1,23 +1,41 @@
 package report;
-import java.util.Date;
-
+import database.GlobalDate;
 import enums.*;
 
 public class Order extends Report {
     private CheckStatus checkStatus;
     private ConfirmationStatus confirmationStatus;
     
+    {
+    	checkStatus = CheckStatus.UNREAD;
+    	confirmationStatus = null;
+    }
+    
     public Order() {}
-	public Order(String text, String title, Date time, CheckStatus checkStatus, ConfirmationStatus confirmationStatus) {
-		super(text, title, time);
-		this.checkStatus = checkStatus;
-		this.confirmationStatus = confirmationStatus;
+	public Order(String text, String title, GlobalDate date) {
+		super(text, title, date);
 	}
-	@Override
+	
+	public String getText() {
+		viewOrder();
+		return super.getText();
+	}
+	
 	public String toString() {
 		return "Order [checkStatus=" + checkStatus + ", confirmationStatus=" + confirmationStatus + ", Text="
-				+ getText() + ", Title=" + getTitle() + ", Time=" + getTime() + "]";
+				+ getText() + ", Title=" + getTitle() + ", Time=" + getDate() + "]";
 	}
     
+	public void viewOrder() {
+		checkStatus = CheckStatus.READ;
+	}
+	
+	public void acceptOrder() {
+		confirmationStatus = ConfirmationStatus.ACCEPT;
+	} 
+	
+	public void rejectOrder() {
+		confirmationStatus = ConfirmationStatus.REJECT;
+	}
 }
 

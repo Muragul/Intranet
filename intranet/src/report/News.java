@@ -1,17 +1,16 @@
 package report;
-
-import java.util.Date;
+import database.GlobalDate;
 
 public class News extends Report {
 	public News() {}
 	
-	public News(String text, String title, Date time) {
-		super(text, title, time);
+	public News(String text, String title, GlobalDate date) {
+		super(text, title, date);
 	}
 
 	@Override
 	public String toString() {
-		return "News [getText()=" + getText() + ", getTitle()=" + getTitle() + ", getTime()=" + getTime() + "]";
+		return "News [getText()=" + getText() + ", getTitle()=" + getTitle() + ", getTime()=" + getDate() + "]";
 	}
 	
 	

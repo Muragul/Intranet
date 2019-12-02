@@ -1,5 +1,6 @@
 package users;
 import report.*;
+import database.Database;
 import java.util.*;
 
 public abstract class Manager extends Employee {
@@ -14,7 +15,7 @@ public abstract class Manager extends Employee {
 		User.news.add(news);
     }
     public String viewInfo(int id) {
-    	for (User u: Admin.users)
+    	for (User u: Database.getUsers())
     		if ((u instanceof Student) || (u instanceof Teacher))
     			return u.toString();
     	return "User Not Found";

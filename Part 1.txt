@@ -90,7 +90,8 @@ Code:
 	request
 	change status
 2. IDK
-	globalDate
+	+ globalDate
 	attendance
 	schedule
-3. List of all Courses
+3. + List of all Courses
+4. Map <Login, Password> users Serializable

@@ -2,6 +2,7 @@ package users;
 import enums.*;
 import java.util.*;
 import course.*;
+import database.GlobalDate;
 import report.*;
 
 public class Student extends User {
@@ -19,7 +20,15 @@ public class Student extends User {
     private Vector<Message> messages;
     private Set<Teacher> ratedTeachers;
     private Vector<Course> registeredCourses;
+    
+//    public class Transcript {
+//    	
+//    	public double gpa;
+//    	public HashMap<>
+//    }
+    
     public Student() {super();}
+    
     public Student(int userId, String login, String password, String firstName, String lastName, int studentId,
 			Gender gender, String email, String universityEmail, String phoneNum, String nationality, Date birthDate,
 			Faculty faculty) {
@@ -34,34 +43,66 @@ public class Student extends User {
 		this.faculty = faculty;
 	}
     
-	//code
     public void registerCourse(Course course) {
     	this.registeredCourses.add(course);
     }
+    
     public void removeCourse(Course course) {
     	this.registeredCourses.remove(course);
     }
+    
     public Vector<CourseFile> viewFiles(Course course) {
     	return course.getFiles();
     }
+    
     public String viewTeacher(Course course) {
     	return course.getTeacher().toString();
     }
+    
     public void rateTeacher(Teacher teacher, double rate) {
+    	teacher.setTeacherRate(rate);
     }
-    public void viewMark(Course course) {
+    
+    public Mark viewMark(Course course) {
+    	return course.getMarks().get(this);
     }
-    public void viewAttestation() {
+    
+    public HashMap<Course, Mark> getAttestation() {
+    	HashMap<Course, Mark> attestation = new HashMap<Course, Mark>();
+    	for (Course course : courses) {
+    		if (course.getYear() == GlobalDate.getInstance().getYear() &&
+    				course.getSemester().equals(GlobalDate.getInstance().getSemester())) {
+    			attestation.put(course, course.getMarks().get(this));
+    		}
+    	}
+    	return attestation;
     }
-    public void viewTranscript() {
+    
+    public HashMap<Course, Mark> getAttestation(int year, Semester semester) {
+    	HashMap<Course, Mark> attestation = new HashMap<Course, Mark>();
+    	for (Course course : courses) {
+    		if (course.getYear() == year && course.getSemester().equals(semester)) {
+    			attestation.put(course, course.getMarks().get(this));
+    		}
+    	}
+    	return attestation;
     }
+    
+    public void getTranscript() {
+    	HashMap<Course, Mark> transcript = new HashMap<Course, Mark>();
+    	
+    }
+    
     public double calculateGPA() {
     	return getGpa();
     }
+    
     public void calculateGPA(int year, Semester semester) {
     }
+    
     public void sendRequest(Request request) {
     }
+    
     public String viewCourse(Course course) {
     	return course.toString();
     }

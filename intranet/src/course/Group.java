@@ -3,37 +3,29 @@ import java.util.*;
 import users.*;
 
 public class Group {
+	public Course course;
     public Teacher teacher;
-    public int time;
-    public int room;
     public Vector<Student> Students;
     public Map<Student, Mark> marks;
     public Map<Student, Attendance> attendance;
+    public Schedule schedule;
+    
     public Group() {}
-	public Group(Teacher teacher, int time, int room) {
+    
+	public Group(Teacher teacher, Schedule schedule, Course course) {
 		super();
 		this.teacher = teacher;
-		this.time = time;
-		this.room = room;
+		this.schedule = schedule;
+		this.course = course;
 	}
 	public Teacher getTeacher() {
 		return teacher;
 	}
+	
 	public void setTeacher(Teacher teacher) {
 		this.teacher = teacher;
 	}
-	public int getTime() {
-		return time;
-	}
-	public void setTime(int time) {
-		this.time = time;
-	}
-	public int getRoom() {
-		return room;
-	}
-	public void setRoom(int room) {
-		this.room = room;
-	}
+	
 	public Vector<Student> getStudents() {
 		return Students;
 	}
@@ -52,15 +44,16 @@ public class Group {
 	public void setAttendance(Map<Student, Attendance> attendance) {
 		this.attendance = attendance;
 	}
-	@Override
+
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + room;
-		result = prime * result + time;
+		result = prime * result + ((course == null) ? 0 : course.hashCode());
+		result = prime * result + ((schedule == null) ? 0 : schedule.hashCode());
+		result = prime * result + ((teacher == null) ? 0 : teacher.hashCode());
 		return result;
 	}
-	@Override
+
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -69,16 +62,24 @@ public class Group {
 		if (getClass() != obj.getClass())
 			return false;
 		Group other = (Group) obj;
-		if (room != other.room)
+		if (course == null) {
+			if (other.course != null)
+				return false;
+		} else if (!course.equals(other.course))
 			return false;
-		if (time != other.time)
+		if (schedule == null) {
+			if (other.schedule != null)
+				return false;
+		} else if (!schedule.equals(other.schedule))
+			return false;
+		if (teacher == null) {
+			if (other.teacher != null)
+				return false;
+		} else if (!teacher.equals(other.teacher))
 			return false;
 		return true;
 	}
-	@Override
-	public String toString() {
-		return "Group [teacher=" + teacher + ", time=" + time + ", room=" + room + "]";
-	}
+	
     
     
 }

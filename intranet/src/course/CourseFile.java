@@ -5,6 +5,7 @@ public class CourseFile {
     private String text;
     private String author;
     private String ISBN;
+    
 	public CourseFile(String title, String text, String author, String iSBN) {
 		super();
 		this.title = title;
@@ -12,31 +13,39 @@ public class CourseFile {
 		this.author = author;
 		ISBN = iSBN;
 	}
+	
 	public String getTitle() {
 		return title;
 	}
+	
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	
 	public String getText() {
 		return text;
 	}
+	
 	public void setText(String text) {
 		this.text = text;
 	}
+	
 	public String getAuthor() {
 		return author;
 	}
+	
 	public void setAuthor(String author) {
 		this.author = author;
 	}
+	
 	public String getISBN() {
 		return ISBN;
 	}
+	
 	public void setISBN(String iSBN) {
 		ISBN = iSBN;
 	}
-	@Override
+	
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -44,7 +53,7 @@ public class CourseFile {
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
 	}
-	@Override
+	
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -65,7 +74,7 @@ public class CourseFile {
 			return false;
 		return true;
 	}
-	@Override
+	
 	public String toString() {
 		return "CourseFile [title=" + title + ", text=" + text + ", author=" + author + ", ISBN=" + ISBN + "]";
 	}

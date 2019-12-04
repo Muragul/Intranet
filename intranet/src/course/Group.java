@@ -5,7 +5,7 @@ import users.*;
 public class Group {
 	public Course course;
     public Teacher teacher;
-    public Vector<Student> Students;
+    public Vector<Student> students;
     public Map<Student, Mark> marks;
     public Map<Student, Attendance> attendance;
     public Schedule schedule;
@@ -18,6 +18,23 @@ public class Group {
 		this.schedule = schedule;
 		this.course = course;
 	}
+	
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+	
+	public Schedule getSchedule() {
+		return schedule;
+	}
+
+	public void setSchedule(Schedule schedule) {
+		this.schedule = schedule;
+	}
+
 	public Teacher getTeacher() {
 		return teacher;
 	}
@@ -27,20 +44,25 @@ public class Group {
 	}
 	
 	public Vector<Student> getStudents() {
-		return Students;
+		return students;
 	}
+	
 	public void setStudents(Vector<Student> students) {
-		Students = students;
+		students = students;
 	}
+	
 	public Map<Student, Mark> getMarks() {
 		return marks;
 	}
+	
 	public void setMarks(Map<Student, Mark> marks) {
 		this.marks = marks;
 	}
+	
 	public Map<Student, Attendance> getAttendance() {
 		return attendance;
 	}
+	
 	public void setAttendance(Map<Student, Attendance> attendance) {
 		this.attendance = attendance;
 	}

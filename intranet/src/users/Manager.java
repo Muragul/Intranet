@@ -4,18 +4,23 @@ import database.Database;
 import java.util.*;
 
 public abstract class Manager extends Employee {
+	
 	public Manager() {super();}
+	
     public Manager(int userId, String login, String password, String firstName, String lastName, double salary) {
 		super(userId, login, password, firstName, lastName, salary);
 		// TODO Auto-generated constructor stub
 	}
     
-    //code
-	public void postNews(News news) {
-		User.news.add(news);
+	public boolean postNews(News news) {
+		Vector<News> newss = Database.getInstance().getNews();
+		newss.add(news);
+		Database.getInstance().setNews(newss);
+		return true;
     }
+	
     public String viewInfo(int id) {
-    	for (User u: Database.getUsers())
+    	for (User u: Database.getInstance().getUsers())
     		if ((u instanceof Student) || (u instanceof Teacher))
     			return u.toString();
     	return "User Not Found";

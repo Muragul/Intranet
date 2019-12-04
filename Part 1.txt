@@ -94,4 +94,5 @@ Code:
 	attendance
 	schedule
 3. + List of all Courses
+Сериализация, лог файлы, генерировать айди, интерфейсы
 4. Map <Login, Password> users Serializable

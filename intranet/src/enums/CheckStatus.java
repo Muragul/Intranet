@@ -1,5 +1,6 @@
 package enums;
 
 public enum CheckStatus {
-    READ, UNREAD;
+    READ, 
+    UNREAD;
 }

@@ -2,102 +2,128 @@ package course;
 
 public class Mark {
 	
-	private double firstAtt;
-	private double secondAtt;
-	private double finalexam;
+	private double firstAttestation;
+	private double secondAttestation;
+	private double finalExam;
+	private boolean isSetFirst;
+	private boolean isSetSecond;
+	private boolean isSetFinal;
 	
-	public Mark() {}
+	public Mark() {
+		firstAttestation = 0.0;
+		secondAttestation = 0.0;
+		finalExam = 0.0;
+		isSetFirst = false;
+		isSetSecond = false;
+		isSetFinal = false;
+	}
 	
-	public Mark(double firstAtt, double secondAtt, double finalexam) {
+	public Mark(double firstAttestation, double secondAttestation, double finalExam) {
 		super();
-		this.firstAtt = firstAtt;
-		this.secondAtt = secondAtt;
-		this.finalexam = finalexam;
+		this.firstAttestation = firstAttestation;
+		this.secondAttestation = secondAttestation;
+		this.finalExam = finalExam;
+		isSetFirst = true;
+		isSetSecond = true;
+		isSetFinal = true;
 	}
 	
 	public double getMark() {
-		return this.firstAtt + this.secondAtt + this.finalexam;
+		return this.firstAttestation + this.secondAttestation + this.finalExam;
 	}
 	
 	public String getGrade() {
-		
-		String grade="";
-		
-		double mark = this.getMark();
-		if (mark >= 94.5) {
-			grade="A";
-		} else if (mark>=89.5) {
-			grade="A-";
-		} else if (mark>=84.5) {
-			grade="B+"; 
-		} else if (mark>=79.5) {
-			grade="B"; 
-		} else if (mark>=74.5) {
-			grade="B-";
-		} else if (mark>=69.5) {
-			grade="C+";
-		} else if (mark>=64.5) {
-			grade="C"; 
-		} else if (mark>=59.5) {
-			grade="C-"; 
-		} else if (mark>=54.5) {
-			grade="D+"; 
-		} else if (mark>=49.5) {
-			grade="D";
-		} else if (mark>=24.5) {
-			grade="FX"; 
+		if (!isSetFirst || !isSetSecond || !isSetFinal) {
+			return "-";
+		} else if (firstAttestation + secondAttestation < 29.5) {
+			return "F";
+		} else if (finalExam < 19.5) {
+			return "FX";
 		} else {
-			grade="F";
+			double mark = getMark();
+			if (mark >= 94.5) {
+				return "A";
+			} else if (mark>=89.5) {
+				return "A-";
+			} else if (mark>=84.5) {
+				return "B+"; 
+			} else if (mark>=79.5) {
+				return "B"; 
+			} else if (mark>=74.5) {
+				return "B-";
+			} else if (mark>=69.5) {
+				return "C+";
+			} else if (mark>=64.5) {
+				return "C"; 
+			} else if (mark>=59.5) {
+				return "C-"; 
+			} else if (mark>=54.5) {
+				return "D+"; 
+			} else {
+				return "D";
+			}
 		}
-		return grade;
 	}
 	
 	public double getGPA() {
 		String grade = this.getGrade();
-		double gpa = 0;
-		if (grade.equals("A")) gpa = 4.0; else
-		if (grade.equals("A-")) gpa = 3.67; else 
-		if (grade.equals("B+")) gpa = 3.33; else
-		if (grade.equals("B")) gpa = 3.0; else 
-		if (grade.equals("B-")) gpa = 2.67; else
-		if (grade.equals("C+")) gpa = 2.33; else 
-		if (grade.equals("C")) gpa = 2.0; else
-		if (grade.equals("C-")) gpa = 1.67; else 
-		if (grade.equals("D+")) gpa = 1.33; else
-		if (grade.equals("D")) gpa = 1.0; else 
-		if (grade.equals("FX")) gpa = 0.5; else
-		if (grade.equals("F")) gpa = 0;
-		return gpa;
+		if (grade.equals("-")) {
+			return 0.0;
+		} else if (grade.equals("A")) {
+			return 4.0;
+		} else if (grade.equals("A-")) {
+			return 3.67;
+		} else if (grade.equals("B+")) {
+			return 3.33;
+		} else if (grade.equals("B")) {
+			return 3.0; 
+		} else if (grade.equals("B-")) {
+			return 2.67;
+		} else if (grade.equals("C+")) {
+			return 2.33;
+		} else if (grade.equals("C")) {
+			return 2.0;
+		} else if (grade.equals("C-")) {
+			return 1.67; 
+		} else if (grade.equals("D+")) {
+			return 1.33;
+		} else if (grade.equals("D")) {
+			return 1.0; 
+		} else if (grade.equals("FX")) {
+			return 0.5;
+		} else {
+			return 0;
+		}
 	}
-	//end
-	public double getFirstAtt() {
-		return firstAtt;
+	
+	public double getFirstAttestation() {
+		return firstAttestation;
 	}
-	public void setFirstAtt(double firstAtt) {
-		this.firstAtt = firstAtt;
+	public void setFirstAtt(double firstAttestation) {
+		this.firstAttestation = firstAttestation;
 	}
-	public double getSecondAtt() {
-		return secondAtt;
+	public double getSecondAttestation() {
+		return secondAttestation;
 	}
-	public void setSecondAtt(double secondAtt) {
-		this.secondAtt = secondAtt;
+	public void setSecondAtt(double secondAttestation) {
+		this.secondAttestation = secondAttestation;
 	}
-	public double getFinalexam() {
-		return finalexam;
+	public double getFinalExam() {
+		return finalExam;
 	}
-	public void setFinalexam(double finalexam) {
-		this.finalexam = finalexam;
+	public void setFinalexam(double finalExam) {
+		this.finalExam = finalExam;
 	}
 	
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		long temp;
-		temp = Double.doubleToLongBits(finalexam);
+		temp = Double.doubleToLongBits(finalExam);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(firstAtt);
+		temp = Double.doubleToLongBits(firstAttestation);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(secondAtt);
+		temp = Double.doubleToLongBits(secondAttestation);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
 	}
@@ -110,17 +136,17 @@ public class Mark {
 		if (getClass() != obj.getClass())
 			return false;
 		Mark other = (Mark) obj;
-		if (Double.doubleToLongBits(finalexam) != Double.doubleToLongBits(other.finalexam))
+		if (Double.doubleToLongBits(finalExam) != Double.doubleToLongBits(other.finalExam))
 			return false;
-		if (Double.doubleToLongBits(firstAtt) != Double.doubleToLongBits(other.firstAtt))
+		if (Double.doubleToLongBits(firstAttestation) != Double.doubleToLongBits(other.firstAttestation))
 			return false;
-		if (Double.doubleToLongBits(secondAtt) != Double.doubleToLongBits(other.secondAtt))
+		if (Double.doubleToLongBits(secondAttestation) != Double.doubleToLongBits(other.secondAttestation))
 			return false;
 		return true;
 	}
 	
 	public String toString() {
-		return "Mark [firstAtt=" + firstAtt + ", secondAtt=" + secondAtt + ", finalexam=" + finalexam + "]";
+		return "Mark [firstAttestation=" + firstAttestation + ", secondAttestation=" + secondAttestation + ", finalExam=" + finalExam + "]";
 	}
 	
 }

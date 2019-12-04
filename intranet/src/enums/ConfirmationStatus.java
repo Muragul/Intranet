@@ -1,5 +1,6 @@
 package enums;
 
 public enum ConfirmationStatus {
-	ACCEPT, REJECT;
+	ACCEPT, 
+	REJECT;
 }

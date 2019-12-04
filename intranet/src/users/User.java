@@ -6,11 +6,11 @@ public abstract class User {
     private int userId;
     private String login;
     private String password;
-    public static Vector<News> news;
     private String firstName;
     private String lastName;
     
     public User() {}
+    
     public User(int userId, String login, String password, String firstName, String lastName) {
 		super();
 		this.userId = userId;
@@ -25,17 +25,19 @@ public abstract class User {
 		this.lastName = lastName;
 	}
 
-	//code
 	public boolean authorize(String login, String password) {
-    	if (this.login.equals(login) && this.password.equals(password))return true;
+    	if (this.login.equals(login) && this.password.equals(password)) {
+    		return true;
+    	}
     	return false;
     }
+	
     public void logout() {
     }
+    
     public void ChangePassword(String newPassword) {
     	this.password = newPassword;
     }
-    //end
     
 	public int getUserId() {
 		return userId;
@@ -61,26 +63,22 @@ public abstract class User {
 		this.lastName = lastName;
 	}
 
-	public Vector<News> getNews() {
-		return news;
-	}
-	
-	public void setNews(Vector<News> news) {
-		User.news = news;
-	}
 	public String getLogin() {
 		return login;
 	}
+	
 	public void setLogin(String login) {
 		this.login = login;
 	}
+	
 	public String getPassword() {
 		return password;
 	}
+	
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	@Override
+	
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -90,7 +88,6 @@ public abstract class User {
 		return result;
 	}
 
-	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -113,7 +110,7 @@ public abstract class User {
 			return false;
 		return true;
 	}
-	@Override
+	
 	public String toString() {
 		return "User [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + "]";
 	}

@@ -56,6 +56,13 @@ public class GlobalDate {
 		this.day = day;
 	}
 	
+	public void setDate(int year, Semester semester, int week, Day day) {
+		setYear(year);
+		setSemester(semester);
+		setWeek(week);
+		setDay(day);
+	}
+	
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;

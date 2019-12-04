@@ -88,4 +88,6 @@ public class Schedule {
 		return dayToNum;
 	}
 	
+	
+	
 }

@@ -9,7 +9,6 @@ public class Course {
 	public int credits;
 	private int year;
 	private Semester Semester;
-	public Teacher teacher;
 	private Map<Student, Mark> marks;
 	public String name;
 	public String shortname;
@@ -74,53 +73,66 @@ public class Course {
 		Semester = semester;
 	}
 	
-	public Teacher getTeacher() {
-		return teacher;
-	}
-	
-	public void setTeacher(Teacher teacher) {
-		this.teacher = teacher;
-		teacher.courses.add(this);
-	}
 	public Map<Student, Mark> getMarks() {
 		return marks;
 	}
+	
 	public void setMarks(Map<Student, Mark> marks) {
 		this.marks = marks;
 	}
+	
 	public String getName() {
 		return name;
 	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public String getShortname() {
+		return shortname;
+	}
+
+	public void setShortname(String shortname) {
+		this.shortname = shortname;
+	}
+
 	public Vector<CourseFile> getFiles() {
 		return files;
 	}
+	
 	public void setFiles(Vector<CourseFile> files) {
 		this.files = files;
 	}
+	
 	public String getDescription() {
 		return description;
 	}
+	
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
 	public Vector<Integer> getFormula() {
 		return formula;
 	}
+	
 	public void setFormula(Vector<Integer> formula) {
 		this.formula = formula;
 	}
+	
 	public Vector<Course> getPrerequesites() {
 		return prerequesites;
 	}
+	
 	public void setPrerequesites(Vector<Course> prerequesites) {
 		this.prerequesites = prerequesites;
 	}
+	
 	public Vector<Group> getGroups() {
 		return groups;
 	}
+	
 	public void setGroups(Vector<Group> groups) {
 		this.groups = groups;
 	}
@@ -159,10 +171,10 @@ public class Course {
 			return false;
 		return true;
 	}
-
+	
 	public String toString() {
 		return "Course [id=" + id + ", faculty=" + faculty + ", credits=" + credits + ", year=" + year + ", Semester="
-				+ Semester + ", teacher=" + teacher + ", marks=" + marks + ", name=" + name + ", files=" + files
+				+ Semester + ", marks=" + marks + ", name=" + name + ", files=" + files
 				+ ", description=" + description + ", formula=" + formula + ", prerequesites=" + prerequesites
 				+ ", groups=" + groups + "]";
 	}
